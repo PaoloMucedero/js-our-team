@@ -36,3 +36,11 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+// COME SEMPRE DEVO CICLARE L'ARRAY teamMembers = []
+for (let index = 0; index < teamMembers.length; index++) {
+  const member = teamMembers[index];
+  console.log(member); // DEBUG
+}
+
+
