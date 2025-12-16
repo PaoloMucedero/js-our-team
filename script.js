@@ -39,14 +39,16 @@ const teamMembers = [
 
 // COME SEMPRE DEVO CICLARE L'ARRAY teamMembers = []
 
-let cards = "";
+let cards = ""; /* Creo una variabile per salvare il risultato della creazione di cards */
 
 for (let index = 0; index < teamMembers.length; index++) {
-  const member = teamMembers[index];
+  const member = teamMembers[index]; /* Ogni membro è l'indice di teammMembers[] durante il ciclo */
+  // per creare la card cardHTML il ciclo deve eseguire la funzione creaTeamCard
   const cardHTML = creaTeamCard(teamMembers[index]);
-  console.log(cardHTML);
+  // DEBUG per funzionamento creazione card
+  console.log(cardHTML); 
   cards += cardHTML;
   //console.log(member); // DEBUG per funzionamento ciclo
 }
-container.innerHTML = cards;
+container.innerHTML = cards; // DEBUG per spingere i <DIV>> che verranno creati dentro il <DIV> con id "container"
 
