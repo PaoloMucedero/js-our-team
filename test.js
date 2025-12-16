@@ -10,7 +10,16 @@ Aggiungere un form di aggiunta membri che permetta di visualizzare il nuovo memb
 // DEVO SELEZIONARE SU QUALE ELEMENTO AGIRE
 const container = document.getElementById("team-members-card-container");
 
-
-
+// IL CICLO DEVE CREARE DELLE CARDS
+function creaTeamCard(member) {
+    return `
+        <div class="team-card">
+            <img src="${member.img}" alt="${member.name}">
+            <h3>${member.name}</h3>
+            <p>${member.role}</p>
+            <p>${member.email}</p>
+        </div>
+    `;
+}
 
 

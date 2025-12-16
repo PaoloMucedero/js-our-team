@@ -38,9 +38,15 @@ const teamMembers = [
 ];
 
 // COME SEMPRE DEVO CICLARE L'ARRAY teamMembers = []
+
+let cards = "";
+
 for (let index = 0; index < teamMembers.length; index++) {
   const member = teamMembers[index];
-  console.log(member); // DEBUG
+  const cardHTML = creaTeamCard(teamMembers[index]);
+  console.log(cardHTML);
+  cards += cardHTML;
+  //console.log(member); // DEBUG per funzionamento ciclo
 }
-
+container.innerHTML = cards;
 
