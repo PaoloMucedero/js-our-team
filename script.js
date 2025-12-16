@@ -44,7 +44,7 @@ let cards = ""; /* Creo una variabile per salvare il risultato della creazione d
 for (let index = 0; index < teamMembers.length; index++) {
   const member = teamMembers[index]; /* Ogni membro è l'indice di teammMembers[] durante il ciclo */
   // per creare la card cardHTML il ciclo deve eseguire la funzione creaTeamCard
-  const cardHTML = creaTeamCard(teamMembers[index]);
+  const cardHTML = creaTeamCard(member);
   // DEBUG per funzionamento creazione card
   console.log(cardHTML); 
   cards += cardHTML;
