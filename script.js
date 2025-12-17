@@ -37,18 +37,30 @@ const teamMembers = [
   }
 ];
 
-// COME SEMPRE DEVO CICLARE L'ARRAY teamMembers = []
 
-let cards = ""; /* Creo una variabile per salvare il risultato della creazione di cards */
-
-for (let index = 0; index < teamMembers.length; index++) {
-  const member = teamMembers[index]; /* Ogni membro è l'indice di teammMembers[] durante il ciclo */
-  // per creare la card cardHTML il ciclo deve eseguire la funzione creaTeamCard
-  const cardHTML = creaTeamCard(member);
-  // DEBUG per funzionamento creazione card
-  console.log(cardHTML); 
-  cards += cardHTML;
-  //console.log(member); // DEBUG per funzionamento ciclo
+// FUNZIONE CHE CREA L'HTML DI UNA SINGOLA CARD
+function creaTeamCard(member) {
+  return `
+    <div class="team-card">
+      <img src="${member.img}" alt="${member.name}">
+      <h3>${member.name}</h3>
+      <p>${member.role}</p>
+      <p>${member.email}</p>
+    </div>
+  `;
 }
-container.innerHTML = cards; // DEBUG per spingere i <DIV>> che verranno creati dentro il <DIV> con id "container"
 
+// FUNZIONE CHE SI OCCUPA DI CREARE E MOSTRARE TUTTE LE CARDS IN PAGINA
+function renderTeam(container) {
+  let cards = ""; // variabile che conterrà tutte le cards
+
+  // COME SEMPRE DEVO CICLARE L'ARRAY teamMembers
+  for (let index = 0; index < teamMembers.length; index++) {
+    const member = teamMembers[index]; // salvo il singolo membro
+    const cardHTML = creaTeamCard(member); // creo la card HTML
+    cards += cardHTML; // accumulo le cards
+  }
+
+  // SPINGO L'HTML IN PAGINA
+  container.innerHTML = cards;
+}

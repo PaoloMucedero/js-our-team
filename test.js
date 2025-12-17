@@ -7,19 +7,41 @@ Bonus
 Rendere l’esercizio responsive, mandando a capo le card
 Aggiungere un form di aggiunta membri che permetta di visualizzare il nuovo membro sulla pagina (usate una foto qualunque, anche vostra se volete sentirvi parte del team! 😀)
 */
-// DEVO SELEZIONARE SU QUALE ELEMENTO AGIRE
+// SELEZIONO L'ELEMENTO HTML IN CUI INSERIRE LE CARDS
 const container = document.getElementById("team-members-card-container");
 
-// IL CICLO DEVE CREARE DELLE CARDS
-function creaTeamCard(member) {
-    return `
-        <div class="team-card">
-            <img src="${member.img}" alt="${member.name}">
-            <h3>${member.name}</h3>
-            <p>${member.role}</p>
-            <p>${member.email}</p>
-        </div>
-    `;
-}
+// RENDER INIZIALE DEL TEAM (APPENA CARICA LA PAGINA)
+renderTeam(container);
 
+/* ------------------------------------
+   GESTIONE FORM PER AGGIUNGERE MEMBRI
+------------------------------------ */
 
+// SELEZIONO IL FORM
+const submitForm = document.getElementById("new-member-form");
+
+// INTERCETTO L'INVIO DEL FORM
+submitForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // blocco il refresh della pagina
+
+    // PRENDO I VALORI DAGLI INPUT
+    const name = document.getElementById("name").value;
+    const role = document.getElementById("role").value;
+    const email = document.getElementById("email").value;
+
+    // CREO NUOVO OGGETTO MEMBRO CON I DATI DEL FORM
+    const newMember = {
+        name,
+        role,
+        email,
+    };
+
+    // AGGIUNGO IL NUOVO MEMBRO ALL'ARRAY
+    teamMembers.push(newMember);
+
+    // RENDER AUTOMATICO AGGIORNATO
+    renderTeam(container);
+
+    // RESETTO IL FORM
+    submitForm.reset();
+});
